@@ -1,26 +1,33 @@
-/* Primera consigna */
+/* Simulador de creditos */
 
-let numeropedido = parseInt(prompt("ingrese un numero"));
-let resultado = 0;
-for (let i = 0; i < 20; (i = i + 2)) {
-    let numeroasumar = parseInt(prompt("ingrese un numero para sumar"));
-    resultado = numeropedido + numeroasumar;
-    console.log(resultado);
+function ingresardinero(dineroprestado) {
+    alert("Te prestaremos $" + dineroprestado);
+    return dineroprestado
 }
 
-/* segunda consigna */
+let dineroprestado = parseInt(prompt("Cuanto dinero quieres?"));
 
-/* let textopedido = prompt("ingrese un texto para concatenar con 'yo soy'");
-let textoqueconcatena = "yo soy ";
-while((textopedido != "ESC") && (textopedido != "esc")){
-    alert(textoqueconcatena + textopedido);
-    textopedido = prompt("ingrese algo mas (para terminar ingrese esc)");
-} */
+ingresardinero(dineroprestado);
 
-/* tercera consigna */
+function cuotas(cuotasapagar) {
+    if (cuotasapagar <= 12) {
+        alert("Elegiste devolver el dinero en " + cuotasapagar + " meses. El interes es de 10% por cuota");
+    } else {
+        alert("ERROR. Solo puedes devolverlo en 12 meses");
+        let cuotasapagar = prompt("¿En cuantas cuotas quieres devolver el dinero? Puede hasta 12 meses");
+    }
+    return cuotasapagar
+}
 
-/* let numeroqueingreso = parseInt(prompt("ingrese un numero y se repetira un mensaje esa cantidad de veces"));
+let cuotasapagar = parseInt(prompt("¿En cuantas cuotas quieres devolver el dinero? Puede hasta 12 meses"));
+cuotas(cuotasapagar);
 
-for (let i = 1; i <= numeroqueingreso; i++){
-    alert("Aprobame Mati");
-} */
+function devolucion(){
+    const interes = cuotasapagar * 10;
+    const dineroconinteres = dineroprestado + (dineroprestado * (interes / 100));
+    alert("Tendras que devolver $" + dineroconinteres + " en total.");
+    const porcuota = dineroconinteres / cuotasapagar;
+    alert("Tu cuota mensual es de $" + porcuota);
+}
+
+devolucion();
