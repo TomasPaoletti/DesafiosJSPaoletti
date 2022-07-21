@@ -15,21 +15,17 @@ function ingresardinero(dineroprestado) {
 }
 
 function cuotas(cuotasapagar) {
-    for (let i = 0; i = cuotasapagar; i++) {
-        if (cuotasapagar <= 12) {
-            alert("Elegiste devolver el dinero en " + cuotasapagar + " meses. El interes es de 10% por cuota");
-            break;
-        } else {
-            alert("ERROR. Solo puedes devolverlo en 12 meses");
+    while (cuotasapagar > 12) {
+            alert("Error. Solo puedes elegir hasta 12 cuotas");
             cuotasapagar = parseInt(prompt("¿En cuantas cuotas quieres devolver el dinero? Puede hasta 12 meses"));
         }
-    }
+        alert("Elegiste devolver el dinero en " + cuotasapagar + " meses. El interes es de 10% por cuota");
     return cuotasapagar
 }
 
 function devolucion(dineroconinteres, porcuota) {
     alert("Tendras que devolver $" + dineroconinteres + " en total.");
-    alert("Tu cuota mensual es de $" + porcuota);
+    alert("Tu cuota mensual es de $" + porcuota.toFixed(2));
 }
 class PersonaSolicitante {
     constructor(nombre, edad, nacionalidad, razonSocial) {
